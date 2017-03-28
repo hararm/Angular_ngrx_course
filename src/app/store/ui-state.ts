@@ -1,4 +1,4 @@
-export interface UiState{
+export interface UiState {
   userId: number;
   currentThreadId: number;
 }

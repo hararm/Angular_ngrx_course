@@ -3,10 +3,10 @@ import {INITIAL_STORE_DATA, StoreData} from "./store-data";
 
 export interface ApplicationState{
   uiState: UiState;
-  storeDate: StoreData;
+  storeData: StoreData;
 }
 
 export const INITIAL_APPLICATION_STATE: ApplicationState = {
   uiState: INITIAL_UI_STATE,
-  storeDate: INITIAL_STORE_DATA
+  storeData: INITIAL_STORE_DATA
 };

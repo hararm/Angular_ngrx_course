@@ -3,7 +3,7 @@ import {Thread} from "../../../shared/model/thread";
 import {Message} from "../../../shared/model/message";
 
 export interface StoreData{
-  participant: {[key:number]:Participant};
+  participants: {[key:number]:Participant};
   threads: {[key:number]:Thread};
   messages: {[key:number]: Message};
 }
@@ -11,5 +11,5 @@ export interface StoreData{
 export const INITIAL_STORE_DATA: StoreData = {
    threads: {},
    messages: {},
-   participant: {}
+   participants: {}
 };
