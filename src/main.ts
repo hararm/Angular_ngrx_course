@@ -9,6 +9,8 @@ import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/withLatestFrom';
 
 const debuggerOn = true;
 

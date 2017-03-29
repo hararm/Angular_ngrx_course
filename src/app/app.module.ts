@@ -19,6 +19,7 @@ import {LoadThreadsEffectService} from './store/effects/load-threads-effect.serv
 import {INITIAL_APPLICATION_STATE} from './store/application-state';
 import {WriteNewMessageEffectService} from './store/effects/write-new-message-effect.service';
 import {appReducer} from './store/reducers/rootReducer';
+import {ServerNotificationsEffectService} from './store/effects/server-notifications-effect.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {appReducer} from './store/reducers/rootReducer';
     StoreModule.provideStore(appReducer, INITIAL_APPLICATION_STATE),
     EffectsModule.run(LoadThreadsEffectService),
     EffectsModule.run(WriteNewMessageEffectService),
+    EffectsModule.run(ServerNotificationsEffectService),
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [ThreadsService],

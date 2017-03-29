@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Headers, Http} from '@angular/http';
+import {Http} from '@angular/http';
 import {AllUserData} from '../../../shared/to/all-user-data';
 import {SendNewMessageActionPayload} from '../store/actions';
 import {commonHttpHeaders} from './commonHttpHeaders';
+import {Message} from '../../../shared/model/message';
 
 @Injectable()
 export class ThreadsService {
@@ -20,5 +21,10 @@ export class ThreadsService {
     return this.http.post(`/api/threads/${payload.threadId}`,
       JSON.stringify({text: payload.text}),
       commonHttpHeaders(payload.participantId));
+  }
+
+  loadNewMessagesForUser(userId: number): Observable<Message[]> {
+     return this.http.post('/api/notifications/messages', null , commonHttpHeaders(userId))
+       .map(res => res.json().payload);
   }
 }
