@@ -1,6 +1,6 @@
-import {Thread} from "../../../shared/model/thread";
-import {ApplicationState} from "../store/application-state";
-import {ThreadSummaryVM} from "./thread-summary.vm";
+import {Thread} from '../../../shared/model/thread';
+import {ApplicationState} from '../store/application-state';
+import {ThreadSummaryVM} from './thread-summary.vm';
 
 import * as _ from 'lodash';
 

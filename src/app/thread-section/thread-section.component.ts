@@ -25,7 +25,6 @@ export class ThreadSectionComponent {
   currentSelectedThreadId$: Observable<number>;
 
   constructor(private store: Store<ApplicationState>) {
-
     this.userName$ = store.select(userNameSelector);
     this.unreadMessagesCounter$ = store.map(mapStateToUnreadmessagesCounter);
     this.threadSummaries$ = store.select(stateToThreadSummariesSelector);
