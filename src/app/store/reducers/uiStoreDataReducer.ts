@@ -55,12 +55,26 @@ function handleSendNewMessageAction(state: StoreData, action: SendNewMessageActi
 
 function handleNewMessagesReceivedAction(state: StoreData, action: NewMessagesReceivedAction) {
   const newStoreState = _.cloneDeep(state);
-  const newMessages = action.payload;
+  const newMessages = action.payload.unreadMessages;
+  const currentThreadId = action.payload.currentThreadId;
+  const currentUserId = action.payload.currentUserId;
 
   newMessages.forEach(message => {
     newStoreState.messages[message.id] = message;
-    newStoreState.threads[message.threadId].messageIds.push(message.id);
+    newStoreState.threads[message.threadId] = _.clone(newStoreState.threads[message.threadId]);
+
+    const messageThread = newStoreState.threads[message.threadId];
+
+    messageThread.messageIds = _.clone(messageThread.messageIds);
+    messageThread.messageIds.push(message.id);
+
+    if (message.threadId !== currentThreadId) {
+      messageThread.participants = _.clone(newStoreState.threads[message.threadId].participants);
+      messageThread.participants[currentUserId] += 1;
+    }
   });
+
+
 
   return newStoreState;
 }

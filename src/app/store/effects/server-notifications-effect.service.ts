@@ -17,8 +17,13 @@ export class ServerNotificationsEffectService {
   @Effect() newMessage = Observable.interval(3000)
     .withLatestFrom(this.store.select('uiState'))
     .map(([any, uiState]) => uiState)
-    .filter((uiState: any) => uiState.userId )
-    .switchMap((uiState: any) => this.threadsService.loadNewMessagesForUser(uiState.userId ))
+    .filter((uiState: any) => uiState.userId)
+    .switchMap((uiState: any) => this.threadsService.loadNewMessagesForUser(uiState.userId))
     .debug('new messages received from server')
-    .map(messages => new NewMessagesReceivedAction(messages));
+    .withLatestFrom(this.store.select('uiState'))
+    .map(([unreadMessages, uiState]: [any, any]) => new NewMessagesReceivedAction({
+      unreadMessages,
+      currentThreadId: uiState.currentThreadId,
+      currentUserId: uiState.userId
+    }));
 }

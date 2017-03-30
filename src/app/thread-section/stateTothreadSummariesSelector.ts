@@ -18,6 +18,8 @@ export function mapThreadToThreadSummary(state: ApplicationState, thread: Thread
     id: thread.id,
     participantNames: _.join(names, ','),
     lastMessageText: lastMessage.text,
-    timestamp: lastMessage.timestamp
+    timestamp: lastMessage.timestamp,
+    read: thread.id === state.uiState.currentThreadId || thread.participants[state.uiState.userId] === 0
   };
 }
+

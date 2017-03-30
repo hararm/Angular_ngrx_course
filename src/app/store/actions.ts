@@ -45,6 +45,12 @@ export interface SendNewMessageActionPayload {
   participantId: number;
 }
 
+export interface NewMessagesReceivedActionPayload {
+  unreadMessages: Message[];
+  currentThreadId: number;
+  currentUserId: number;
+}
+
 export class SendNewMessageAction implements Action {
   readonly type = SEND_NEW_MESSAGE_ACTION;
   constructor(public payload?: SendNewMessageActionPayload) {
@@ -54,7 +60,7 @@ export class SendNewMessageAction implements Action {
 
 export class NewMessagesReceivedAction implements Action {
   readonly type = NEW_MESSAGES_RECEIVED_ACTION;
-  constructor(public payload: Message[]= []) {
+  constructor(public payload?: NewMessagesReceivedActionPayload) {
   }
 }
 
