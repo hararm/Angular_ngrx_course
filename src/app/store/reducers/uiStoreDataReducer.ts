@@ -7,11 +7,10 @@ const uuid = require('uuid/v4');
 import {
   NEW_MESSAGES_RECEIVED_ACTION,
   NewMessagesReceivedAction,
-  SEND_NEW_MESSAGE_ACTION, SendNewMessageAction, USER_THREADS_LOADED_ACTION,
+  SEND_NEW_MESSAGE_ACTION, SendNewMessageAction, THREAD_SELECTED_ACTION, USER_THREADS_LOADED_ACTION,
   UserThreadsLoadedAction
 } from '../actions';
 import {Message} from '../../../../shared/model/message';
-
 
 
 export function storeData(state: StoreData, action: Action): StoreData {
@@ -22,6 +21,8 @@ export function storeData(state: StoreData, action: Action): StoreData {
       return handleSendNewMessageAction(state, <any>action);
     case NEW_MESSAGES_RECEIVED_ACTION:
       return handleNewMessagesReceivedAction(state, <any>action);
+    case THREAD_SELECTED_ACTION:
+      return handleThreadSelectedAction(state, action);
     default:
       return state;
   }
@@ -73,8 +74,13 @@ function handleNewMessagesReceivedAction(state: StoreData, action: NewMessagesRe
       messageThread.participants[currentUserId] += 1;
     }
   });
+  return newStoreState;
+}
 
-
+function handleThreadSelectedAction(state: StoreData, action: Action) {
+  const newStoreState = _.cloneDeep(state);
+  const currentThread = newStoreState.threads[action.payload.selectedThreadId];
+  currentThread.participants[action.payload.currentUserId] = 0;
 
   return newStoreState;
 }

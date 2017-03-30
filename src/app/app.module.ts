@@ -20,6 +20,7 @@ import {INITIAL_APPLICATION_STATE} from './store/application-state';
 import {WriteNewMessageEffectService} from './store/effects/write-new-message-effect.service';
 import {appReducer} from './store/reducers/rootReducer';
 import {ServerNotificationsEffectService} from './store/effects/server-notifications-effect.service';
+import {MarkMessagesAsReadEffectService} from './store/effects/mark-messages-as-read-effect.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {ServerNotificationsEffectService} from './store/effects/server-notificat
     EffectsModule.run(LoadThreadsEffectService),
     EffectsModule.run(WriteNewMessageEffectService),
     EffectsModule.run(ServerNotificationsEffectService),
+    EffectsModule.run(MarkMessagesAsReadEffectService),
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [ThreadsService],
