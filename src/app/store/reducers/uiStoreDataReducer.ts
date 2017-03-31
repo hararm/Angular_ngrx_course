@@ -11,7 +11,6 @@ import {
   UserThreadsLoadedAction
 } from '../actions';
 import {Message} from '../../../../shared/model/message';
-import {stat} from 'fs';
 
 
 export function storeData(state: StoreData, action: Action): StoreData {
