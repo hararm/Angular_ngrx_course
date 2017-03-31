@@ -8,6 +8,8 @@ import { StoreModule} from '@ngrx/store';
 import { AppComponent } from './app.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {EffectsModule} from '@ngrx/effects';
+import {RouterStoreModule} from '@ngrx/router-store';
+import {RouterModule} from '@angular/router';
 
 import { UserSelectionComponent } from './user-selection/user-selection.component';
 import { ThreadSectionComponent } from './thread-section/thread-section.component';
@@ -22,7 +24,6 @@ import {appReducer} from './store/reducers/rootReducer';
 import {ServerNotificationsEffectService} from './store/effects/server-notifications-effect.service';
 import {MarkMessagesAsReadEffectService} from './store/effects/mark-messages-as-read-effect.service';
 import { MessagesComponent } from './messages/messages.component';
-import {RouterModule} from '@angular/router';
 import {routes} from './routes';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -45,6 +46,7 @@ import { AboutComponent } from './about/about.component';
     HttpModule,
     RouterModule.forRoot(routes, {useHash: true}),
     StoreModule.provideStore(appReducer, INITIAL_APPLICATION_STATE),
+    RouterStoreModule.connectRouter(),
     EffectsModule.run(LoadThreadsEffectService),
     EffectsModule.run(WriteNewMessageEffectService),
     EffectsModule.run(ServerNotificationsEffectService),

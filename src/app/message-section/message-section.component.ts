@@ -1,6 +1,6 @@
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import {ApplicationState} from '../store/application-state';
 import {MessageVM} from './message.vm';
