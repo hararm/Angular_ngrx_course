@@ -22,6 +22,10 @@ import {appReducer} from './store/reducers/rootReducer';
 import {ServerNotificationsEffectService} from './store/effects/server-notifications-effect.service';
 import {MarkMessagesAsReadEffectService} from './store/effects/mark-messages-as-read-effect.service';
 import { MessagesComponent } from './messages/messages.component';
+import {RouterModule} from '@angular/router';
+import {routes} from './routes';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +35,15 @@ import { MessagesComponent } from './messages/messages.component';
     MessageSectionComponent,
     ThreadListComponent,
     MessageListComponent,
-    MessagesComponent
+    MessagesComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule.forRoot(routes, {useHash: true}),
     StoreModule.provideStore(appReducer, INITIAL_APPLICATION_STATE),
     EffectsModule.run(LoadThreadsEffectService),
     EffectsModule.run(WriteNewMessageEffectService),
