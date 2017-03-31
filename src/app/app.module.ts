@@ -27,6 +27,7 @@ import { MessagesComponent } from './messages/messages.component';
 import {routes} from './routes';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ChatMessageComponent } from './chat-message/chat-message.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AboutComponent } from './about/about.component';
     MessageListComponent,
     MessagesComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ChatMessageComponent
   ],
   imports: [
     BrowserModule,
