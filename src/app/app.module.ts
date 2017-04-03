@@ -28,6 +28,7 @@ import {routes} from './routes';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
+import { BasichighlightDirective } from './shared/directives/basichighlight.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ChatMessageComponent } from './chat-message/chat-message.component';
     MessagesComponent,
     HomeComponent,
     AboutComponent,
-    ChatMessageComponent
+    ChatMessageComponent,
+    BasichighlightDirective
   ],
   imports: [
     BrowserModule,

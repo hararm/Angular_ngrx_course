@@ -25,11 +25,11 @@ export class MessageListComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
 
-    if (changes['messages']) {
+    if (changes['messages'].previousValue !== undefined && changes['messages'].currentValue !== undefined) {
       const previousMessages = changes['messages'].previousValue;
       const newMessages = changes['messages'].currentValue;
 
-      if (newMessages.length > previousMessages.length){
+      if (newMessages.length > previousMessages.length) {
         setTimeout(() => {
           this.scrollLastMessageIntoView();
         });
