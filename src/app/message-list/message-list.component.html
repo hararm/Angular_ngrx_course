@@ -1,5 +1,6 @@
 <ul class="message-list" #list>
-  <li class="message-list-item" *ngFor="let message of messages">
+  <li class="message-list-item" *ngFor="let message of messages | filter:filteredText: 'text'">
     <chat-message [message]="message"></chat-message>
   </li>
 </ul>
+<input type="text" class="filter-text" [(ngModel)]="filteredText">

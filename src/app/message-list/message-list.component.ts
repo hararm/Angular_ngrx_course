@@ -20,6 +20,8 @@ export class MessageListComponent implements OnChanges {
   @ViewChild('list')
   list: ElementRef;
 
+  filteredText: string;
+
   constructor() {
   }
 

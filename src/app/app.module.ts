@@ -30,6 +30,7 @@ import { AboutComponent } from './about/about.component';
 import { ChatMessageComponent } from './chat-message/chat-message.component';
 import { BasichighlightDirective } from './shared/directives/basichighlight.directive';
 import {ItalicPipe} from './shared/pipes/italicPipe.pipe';
+import {FilterPipe} from './shared/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {ItalicPipe} from './shared/pipes/italicPipe.pipe';
     AboutComponent,
     ChatMessageComponent,
     BasichighlightDirective,
-    ItalicPipe
+    ItalicPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
