@@ -4,7 +4,7 @@ import {Directive, ElementRef, HostBinding, HostListener, OnInit, Renderer2} fro
   selector: '[appBasichighlight]'
 })
 export class BasichighlightDirective implements OnInit {
-  @HostBinding('style.color') color: string = 'black';
+  @HostBinding('style.color') color = 'black';
 
   constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
